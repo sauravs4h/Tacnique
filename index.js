@@ -4,21 +4,26 @@ const app=express();
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
-
 // parse application/json
 app.use(bodyParser.json())
-
 
 app.get("/",(req,res)=>{
     res.status(201).json({msg:"base api",status:"success"});
 })
 
+// Database connection
 
-app.listen(8080,()=>{
+const {connection}=require("./config/db")
+
+
+app.listen(8080,async()=>{
     try {
-        console.log("Running on 8080")
+        await connection
+        console.log("connected to DB")
     } catch (error) {
-        console.log("Error while running")
+        console.log("Error while connecting DB")
         console.log(error)
     }
+    console.log("Running on 8080")
+
 })
