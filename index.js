@@ -12,8 +12,12 @@ app.get("/",(req,res)=>{
 })
 
 // Database connection
-
 const {connection}=require("./config/db")
+
+// User route
+
+const {user}=require("./routes/user.routes");
+app.use("/user",user);
 
 
 app.listen(8080,async()=>{
