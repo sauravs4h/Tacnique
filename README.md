@@ -57,14 +57,14 @@ When making requests to the above endpoints, prepend this base URL to construct 
 
 To add a new task, send a POST request to the `/tasks` endpoint with the following sample data:
 
-
+```
 {
   "title": "Learn Node",
   "description": "For make good projects.",
   "creation_date": "2023-10-07",
   "status": "pending"
 }
-
+```
 ---
 ## Deployment
 
