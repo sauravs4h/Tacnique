@@ -6,6 +6,7 @@ Welcome to the Task Management Backend, a RESTful API for managing tasks and use
 - [Endpoints](#endpoints)
   - [User Router](#user-router)
   - [Task Router](#task-router)
+- [Data Types](#data-types)
 - [Deployment](#deployment)
 
 ---
@@ -28,6 +29,17 @@ Welcome to the Task Management Backend, a RESTful API for managing tasks and use
 | `task/tasks`         | POST   | Create a new task                    | `{ title, description, creation_date, status }`         |
 | `task/tasks/:id`     | PUT    | Update a task by ID                  | `{ title, description, creation_date, status }`         |
 | `task/tasks/:id`     | DELETE | Delete a task by ID                  |                                                         |
+
+---
+
+## Data Types
+
+- `title`: String
+- `description`: String
+- `creation_date`: Date
+- `status`: Enum ["pending", "completed"]
+
+Use these data types when sending requests to the respective endpoints to ensure data consistency and proper functionality.
 
 ---
 
