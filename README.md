@@ -57,7 +57,7 @@ When making requests to the above endpoints, prepend this base URL to construct 
 
 To add a new task, send a POST request to the `/tasks` endpoint with the following sample data:
 
-```json
+
 {
   "title": "Learn Node",
   "description": "For make good projects.",
@@ -66,7 +66,6 @@ To add a new task, send a POST request to the `/tasks` endpoint with the followi
 }
 
 ---
-
 ## Deployment
 
 This backend application is deployed and available for use. You can access it using the following link:
