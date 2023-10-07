@@ -15,9 +15,13 @@ app.get("/",(req,res)=>{
 const {connection}=require("./config/db")
 
 // User route
-
 const {user}=require("./routes/user.routes");
 app.use("/user",user);
+
+// authentication middleware
+const {authentication}=require("./middleware/authentication");
+
+
 
 
 app.listen(8080,async()=>{
