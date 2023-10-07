@@ -7,6 +7,7 @@ Welcome to the Task Management Backend, a RESTful API for managing tasks and use
   - [User Router](#user-router)
   - [Task Router](#task-router)
 - [Data Types](#data-types)
+- [Sample Data](#sample-data)
 - [Deployment](#deployment)
 
 ---
@@ -52,6 +53,20 @@ The base API URL for this backend is:
 When making requests to the above endpoints, prepend this base URL to construct the complete API URLs.
 
 ---
+## Sample Data
+
+To add a new task, send a POST request to the `/tasks` endpoint with the following sample data:
+
+```json
+{
+  "title": "Learn Node",
+  "description": "For make good projects.",
+  "creation_date": "2023-10-07",
+  "status": "pending"
+}
+
+---
+
 ## Deployment
 
 This backend application is deployed and available for use. You can access it using the following link:
