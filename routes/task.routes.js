@@ -30,9 +30,9 @@ task.get("/tasks/:id",async(req,res)=>{
 
 
 // Route for add new task
-
 task.post("/tasks",async(req,res)=>{
     const payload=req.body;
+    console.log(payload)
     try {
         let newtask=new Taskmodel(payload);
         await newtask.save();
@@ -44,7 +44,6 @@ task.post("/tasks",async(req,res)=>{
 })
 
 // Update a specific task
-
 task.put("/tasks/:id",async(req,res)=>{
     const payload=req.body;
     const taskid=req.params.id;
@@ -52,7 +51,7 @@ task.put("/tasks/:id",async(req,res)=>{
         let task=await Taskmodel.findOne({_id:taskid});
         if(task){
             await Taskmodel.findByIdAndUpdate({_id:taskid},payload);
-            res.status(201).json({msg:"Task added successfully",status:"success"});
+            res.status(201).json({msg:"Task update successfully",status:"success"});
         }else{
             res.status(401).json({mag:"Task is not available",status:"failed"});
         } 
@@ -62,9 +61,6 @@ task.put("/tasks/:id",async(req,res)=>{
 })
 
 // Delete one specific task
-
-
-
 task.delete("/tasks/:id",async(req,res)=>{
     const taskid=req.params.id;
     try {

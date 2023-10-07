@@ -12,10 +12,11 @@ const authentication=(req,res,next)=>{
             if(err){
                 res.status(401).json({msg:"Please login first",status:"failed"});
             }
+
+            // saving userid to req.body object
             const userid=decoded.userid
-             // console.log(userid) 
-              payload.userid=userid;
-              next()
+            payload.userid=userid;
+            next()
           });
           
 

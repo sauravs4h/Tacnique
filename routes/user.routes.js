@@ -5,8 +5,7 @@ const {Usermodel}=require("../models/usermodel");
 const bcrypt = require('bcrypt');
 var jwt = require('jsonwebtoken');
 
-// user signup
-
+// User signup
 user.post("/signup",async(req,res)=>{
     try {
         let payload=req.body;
@@ -32,7 +31,6 @@ user.post("/signup",async(req,res)=>{
 })
 
 // User login
-
 user.post("/login",async(req,res)=>{
     try {
         let payload=req.body;
@@ -54,7 +52,7 @@ user.post("/login",async(req,res)=>{
                 else{
                     res.status(401).json({msg:"Wrong password",status:"failed"});
                 }
-                // result == true
+            
             });
 
         }else{

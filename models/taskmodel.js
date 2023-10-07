@@ -10,12 +10,17 @@ const taskSchema=mongoose.Schema({
         require:true
     },
     creation_date:{
-        type:String,
+        type:Date,
         require:true
     },
     status:{
-        type:Boolean,
-        require:true
+        type:String,
+        enum:["pending","completed"],
+        default:"pending",  
+    },
+    userid:{
+        type:mongoose.Schema.ObjectId,
+        ref:"user"
     }
 })
 
