@@ -32,7 +32,6 @@ task.get("/tasks/:id",async(req,res)=>{
 // Route for add new task
 task.post("/tasks",async(req,res)=>{
     const payload=req.body;
-    console.log(payload)
     try {
         let newtask=new Taskmodel(payload);
         await newtask.save();
