@@ -43,6 +43,15 @@ Use these data types when sending requests to the respective endpoints to ensure
 
 ---
 
+## Base API URL
+
+The base API URL for this backend is:
+
+`http://localhost:8080`
+
+When making requests to the above endpoints, prepend this base URL to construct the complete API URLs.
+
+---
 ## Deployment
 
 This backend application is deployed and available for use. You can access it using the following link:
