@@ -19,8 +19,9 @@ task.get("/tasks",async(req,res)=>{
 task.get("/tasks/:id",async(req,res)=>{
     const {userid}=req.body;
     const taskid=req.params.id
+    
     try {
-        let task=await Taskmodel.findOne({_id:taskid});
+        let task=await Taskmodel.findOne({_id:taskid},{userid});
         res.status(201).json({tasks:task,status:"success"});
     } catch (error) {
         res.status(401).json({mag:"something went wrong",status:"failed"});
@@ -46,8 +47,9 @@ task.post("/tasks",async(req,res)=>{
 task.put("/tasks/:id",async(req,res)=>{
     const payload=req.body;
     const taskid=req.params.id;
+    const {userid}=req.body
     try {
-        let task=await Taskmodel.findOne({_id:taskid});
+        let task=await Taskmodel.findOne({_id:taskid},{userid});
         if(task){
             await Taskmodel.findByIdAndUpdate({_id:taskid},payload);
             res.status(201).json({msg:"Task update successfully",status:"success"});
@@ -62,8 +64,10 @@ task.put("/tasks/:id",async(req,res)=>{
 // Delete one specific task
 task.delete("/tasks/:id",async(req,res)=>{
     const taskid=req.params.id;
+    const {userid}=req.body
+
     try {
-        let task=await Taskmodel.findOne({_id:taskid});
+        let task=await Taskmodel.findOne({_id:taskid},{userid});
         if(task){
             await Taskmodel.findByIdAndDelete({_id:taskid});
             res.status(201).json({msg:"task delete successfully",status:"success"});

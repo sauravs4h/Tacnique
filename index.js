@@ -25,9 +25,14 @@ app.use("/user",user);
 // authentication middleware
 const {authentication}=require("./middleware/authentication");
 
+// logging middleware
+const {apilog}=require("./middleware/apilog")
+
 // Task route (authenticated route)
 const {task}=require("./routes/task.routes");
-app.use("/task",authentication,task);
+app.use("/task",authentication,apilog,task);
+
+
 
 
 app.listen(8080,async()=>{
